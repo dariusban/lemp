@@ -1,0 +1,27 @@
+---
+# This task is responsible for installing nginx on our extraordinary server. 
+- name: Install mysql client
+  apt:
+    name: mysql-client
+    state: present
+
+- name: Install curl package 
+  apt:
+    name: curl
+    state: present
+
+- name: Install nano to make Konrad a happy user
+  apt:
+    name: nano
+    state: present
+
+- name: Install git (probably installed by default)
+  apt:
+    name: git
+    state: present
+
+- name: Install ffmpeg
+  apt:
+    name: ffmpeg
+    state: present
+    

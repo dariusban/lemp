@@ -1,0 +1,18 @@
+---
+# This task is responsible for installing nginx on our extraordinary server. 
+
+- name: Make sure apache related packages are removed
+  tags: nginx
+  apt: name="{{ packages }}" state=absent purge=yes
+  when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'
+  vars:
+      packages:
+      - apache2
+      - apache2-utils
+
+
+- name: Install nginx 
+  apt:
+    name: nginx
+    state: present
+

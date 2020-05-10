@@ -1,0 +1,12 @@
+# This tasks will be responsible for installing everything related to nodejs
+# And javascript pacakges
+---
+- name: Install nodejs 
+  apt:
+    name: nodejs
+    state: present
+
+- name: Install npm
+  apt:
+    name: nodejs
+    state: present

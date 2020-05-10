@@ -1,0 +1,25 @@
+---
+# This task is responsible for installing nginx on our extraordinary server. 
+
+- name: Add ondrejs repository to allow php installation
+  tags: ondrej
+  apt_repository:
+    repo: ppa:ondrej/php
+    state: present
+
+- name: Install php"{{ php_version }}" related packages 
+  apt: name={{item}} state=installed update_cache=yes
+  tags: php
+  with_items:
+    - php{{ php_version }}
+    - php{{ php_version }}-fpm
+    - php{{ php_version }}-cli
+    - php{{ php_version }}-curl
+    - php{{ php_version }}-mysql
+    - php{{ php_version }}-gd
+    - php{{ php_version }}-mbstring
+    - php{{ php_version }}-redis
+    - php-xml
+
+
+# We can provide initial memory configuration here

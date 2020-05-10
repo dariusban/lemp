@@ -1,0 +1,16 @@
+---
+# This playbook deploys the whole application stack in this site.
+
+- name: Install NGINX and PHP{{php_version}}
+  hosts: webservers
+  remote_user: {{ remote_user }}
+
+  roles:
+    - web
+
+- name: deploy MySQL and configure the databases
+  hosts: dbservers
+  remote_user: root
+
+  roles:
+    - db

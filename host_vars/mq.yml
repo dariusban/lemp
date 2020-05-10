@@ -1,0 +1,5 @@
+---
+# This file contains configuration variables
+
+remote_user: "" # set user for remote connection
+php_version: "" # provide php version
